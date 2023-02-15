@@ -1,22 +1,20 @@
 package com.example.path.DAO;
 
 
-import androidx.lifecycle.LiveData;
+import android.database.Cursor;
+
+
+
 import androidx.room.Dao;
-import androidx.room.Insert;
+
 import androidx.room.Query;
 
-import com.example.path.Entity.User;
-
-import java.util.List;
 
 @Dao
 public interface UserDao {
-    @Query("SELECT * FROM qdata")
-    List<User> getAll();
+    @Query("SELECT * FROM qdata WHERE id = :userId")
+    Cursor getAllUsers(int userId);
 
-    @Insert
-    void insertAll(User user);
 
 
 }
